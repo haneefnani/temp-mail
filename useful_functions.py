@@ -13,11 +13,9 @@ def write_to_file(this_file):
     Args:
         this_file ([date]) : [writes to json file]
     """
-    f = open('response_text.json', 'w')
-    f.write(this_file)
-
-
-
+    with open('response_text.json', 'w') as f:
+        f.write(this_file)
+        
 def convertJSON():
     """
         This takes no arguments and returns a dictonary from json 
@@ -28,3 +26,7 @@ def convertJSON():
         distros_dict = json.load(f)
     return distros_dict
 
+
+def clear_file():
+    with open('response_text.json', 'w') as f:
+        f.close()
