@@ -28,5 +28,5 @@ def convertJSON():
 
 
 def clear_file():
-    with open('response_text.json', 'w') as f:
-        f.close()
+    with open('response_text.json', 'r+') as f:
+        f.truncate(0)
