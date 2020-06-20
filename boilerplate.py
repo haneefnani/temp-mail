@@ -1,9 +1,13 @@
 import requests
+import json
+
+from useful_functions import *
+
 
 api_key = open(r'C:\Users\haneef\Documents\Credentials\temp_mail_api.txt').read()
 
-
-url = "https://privatix-temp-mail-v1.p.rapidapi.com/request/mail/id/%7Bmd5%7D/"
+mail_hash = computeMD5hash('harry@promail1.net')
+url = "https://privatix-temp-mail-v1.p.rapidapi.com/request/mail/id/" + mail_hash + "/"
 
 headers = {
     'x-rapidapi-host': "privatix-temp-mail-v1.p.rapidapi.com",
@@ -12,4 +16,12 @@ headers = {
 
 response = requests.request("GET", url, headers=headers)
 
-print(response.text)
+data = response.text
+
+write_to_file(data)
+
+convertJSON()
+
+
+
+
