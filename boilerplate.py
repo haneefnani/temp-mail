@@ -6,7 +6,7 @@ from useful_functions import *
 
 api_key = open(r'C:\Users\haneef\Documents\Credentials\temp_mail_api.txt').read()
 
-mail_hash = computeMD5hash('harry@promail1.net')
+mail_hash = computeMD5hash('thomas@rcmails.com')
 url = "https://privatix-temp-mail-v1.p.rapidapi.com/request/mail/id/" + mail_hash + "/"
 
 headers = {
@@ -16,12 +16,9 @@ headers = {
 
 response = requests.request("GET", url, headers=headers)
 
-data = response.text
+data = response.json()
 
-write_to_file(data)
-
-convertJSON()
-
+print(data)
 
 
 
