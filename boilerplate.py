@@ -1,10 +1,13 @@
 import requests
 
+api_key = open(r'C:\Users\haneef\Documents\Credentials\temp_mail_api.txt').read()
+
+
 url = "https://privatix-temp-mail-v1.p.rapidapi.com/request/mail/id/%7Bmd5%7D/"
 
 headers = {
     'x-rapidapi-host': "privatix-temp-mail-v1.p.rapidapi.com",
-    'x-rapidapi-key': "a751637279msh471694ff49027bdp12e2d2jsn7c878ea74949"
+    'x-rapidapi-key': api_key
     }
 
 response = requests.request("GET", url, headers=headers)
